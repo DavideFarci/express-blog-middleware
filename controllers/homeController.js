@@ -2,6 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 function index(req, res) {
+  safasdf;
   res.format({
     html: () => {
       // Leggo il contenuto di index.html
