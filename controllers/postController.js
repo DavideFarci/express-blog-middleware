@@ -116,19 +116,19 @@ function store(req, res) {
   /**
    * @type {number[]}
    */
-  let idList = jsonPosts.map((post) => post.id);
+  let idList = posts.map((post) => post.id);
 
   // Riordino gli ig
   idList.sort((a, b) => b - a);
 
   // Aggiungere il post al db
-  jsonPosts.push({
+  posts.push({
     ...req.body,
     id: idList[0] + 1,
     slug: kebabCase(req.body.title),
   });
 
-  const json = JSON.stringify(jsonPosts, null, 2);
+  const json = JSON.stringify(posts, null, 2);
 
   fs.writeFileSync(path.resolve(__dirname, "../db/posts.json"), json);
 

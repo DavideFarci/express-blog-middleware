@@ -1,3 +1,5 @@
+const generateJwt = require("../Utilities/jwtGenerate");
+
 function login(req, res) {
   // leggo dati utente dalla richiesta (body)
   const { username, password } = req.body;
@@ -17,7 +19,12 @@ function login(req, res) {
     return;
   }
 
-  res.send("rotta login");
+  // una volta trovato l'utente, genero il token e lo invio al client
+  const token = generateJwt(user);
+
+  res.json({
+    token,
+  });
 }
 
 module.exports = {
