@@ -67,6 +67,7 @@ function index(req, res) {
   });
 }
 
+// SHOW ----------------------------------------------
 function show(req, res) {
   res.format({
     html: () => {
@@ -109,6 +110,7 @@ function show(req, res) {
   });
 }
 
+// STORE ----------------------------------------------
 function store(req, res) {
   // Recupero gli id dei post
   /**
