@@ -13,11 +13,15 @@ const errorsFormatterMiddlware = require("./middlewares/errorsFormatter");
 const routesLoggerMiddlwere = require("./middlewares/routesLogger");
 const routeNotFoundMiddlware = require("./middlewares/routeNotFound");
 
+const authRouter = require("./routers/auth");
+
 const app = express();
 app.use(express.json());
 
 // Confugurazione file statici
 app.use(express.static("public"));
+// Configuro express per leggere i dati in formato x-www-form-urlencoded
+app.use(express.urlencoded({ extended: true }));
 
 // Configuro il midd. a livello globale
 app.use(routesLoggerMiddlwere);
@@ -27,6 +31,9 @@ app.get("/", homeController.index);
 
 // rotte dedicate ai post
 app.use("/posts", postsRouter);
+
+// rotta auth
+app.use("/login", authRouter);
 
 // Gestione degli errori
 app.use(errorsFormatterMiddlware);
