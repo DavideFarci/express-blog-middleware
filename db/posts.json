@@ -44,12 +44,5 @@
       "Ricette vegetariane",
       "Ricette al forno"
     ]
-  },
-  {
-    "title": "insalata russa",
-    "content": "buonissima l'insalata russa",
-    "tags": ["insalata", "buonissima"],
-    "id": 6,
-    "slug": "insalata-russa"
   }
 ]

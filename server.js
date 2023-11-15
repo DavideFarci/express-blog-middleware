@@ -8,13 +8,18 @@ dotenv.config();
 
 // Import
 const homeController = require("./controllers/homeController");
+const postsRouter = require("./routers/posts");
 
 const app = express();
 
+// Confugurazione file statici
 app.use(express.static("public"));
 
 // Rotte
-app.use("/", homeController.index);
+app.get("/", homeController.index);
+
+// rotte dedicate ai post
+app.use("/posts", postsRouter);
 
 app.listen(process.env.PORT || 3000, () => {
   console.log(
